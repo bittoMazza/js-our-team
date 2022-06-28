@@ -2,36 +2,37 @@ const team = [
     {
         name : "Wayne Barnett",
         role : "Founder & CEO",
-        imageUrl : "wayne-barnett-founder-ceo.jpg"
+        imageUrl : "./img/wayne-barnett-founder-ceo.jpg"
     },
     {
         name : "Angela Caroll",
         role : "Chief Editor",
-        imageUrl : "angela-caroll-chief-editor.jpg"
+        imageUrl : "./img/angela-caroll-chief-editor.jpg"
     },
     {
         name : "Walter Gordon",
         role : "Office Manager",
-        imageUrl : "walter-gordon-office-manager.jpg"
+        imageUrl : "./img/walter-gordon-office-manager.jpg"
     },
     {
         name : "Angela Lopez",
         role : "Social Media Manager",
-        imageUrl : "angela-lopez-social-media-manager.jpg"
+        imageUrl : "./img/angela-lopez-social-media-manager.jpg"
     },
     {
         name : "Scott Estrada",
         role : "Developer",
-        imageUrl : "scott-estrada-developer.jpg"
+        imageUrl : "./img/scott-estrada-developer.jpg"
     },
     {
         name : "Barbara Ramos",
         role : "Graphic Designer",
-        imageUrl : "barbara-ramos-graphic-designer.jpg"
+        imageUrl : "./img/barbara-ramos-graphic-designer.jpg"
     }
 
 ]
 
+const containerCards = document.getElementById('container-cards') 
 
 for(let i = 0; i < team.length ; i++){
     console.log
@@ -40,4 +41,16 @@ for(let i = 0; i < team.length ; i++){
     ${team[i].role}  
     ${team[i].imageUrl}
     `)
+    const newCard = document.createElement('div');
+    newCard.classList.add('ms_card');
+    newCard.innerHTML = 
+    ` 
+      <img class="card-img-top" src="${team[i].imageUrl}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title py-2">${team[i].name}</h5>
+        <h6 class="card-text">${team[i].role}.</h6>
+      </div>
+    `
+    containerCards.append(newCard);
+
 }
