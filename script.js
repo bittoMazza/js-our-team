@@ -35,8 +35,6 @@ const team = [
 const newMemberBtn = document.getElementById('bnt-new-member')
 const containerCards = document.getElementById('container-cards') 
 
-
-
 newMemberBtn.addEventListener('click',function(){
 
     // Le immagini non le prendiamo in input ma con lorem picsum
@@ -44,20 +42,25 @@ newMemberBtn.addEventListener('click',function(){
     const nameNewMember = document.getElementById('name-new-member').value;
     const roleNewMember = document.getElementById('role-new-member').value;
     const newRandomImg = "https://picsum.photos/200"
-    const newMember = {name:nameNewMember,role:roleNewMember,imageUrl:newRandomImg}
-    const newCard = document.createElement('div');
-    newCard.classList.add('ms_card');
-    newCard.innerHTML = 
-    ` 
-      <img class="card-img-top" src="${newRandomImg}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title py-2">${nameNewMember}</h5>
-        <h6 class="card-text">${roleNewMember}.</h6>
-      </div>
-    `
-    containerCards.append(newCard);
-    team.push(newMember);
-    console.log(team)
+    if(nameNewMember == "" || roleNewMember == "")
+    {
+        alert('Inserire valori validi PERFAVORE')
+    }else
+    {
+        const newMember = {name:nameNewMember,role:roleNewMember,imageUrl:newRandomImg}
+        const newCard = createElement();
+        newCard.innerHTML = 
+        ` 
+          <img class="card-img-top" src="${newRandomImg}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title py-2">${nameNewMember}</h5>
+            <h6 class="card-text">${roleNewMember}.</h6>
+          </div>
+        `
+        containerCards.append(newCard);
+        team.push(newMember);
+    }
+   
 })
 
 for(let i = 0; i < team.length ; i++){
@@ -67,8 +70,7 @@ for(let i = 0; i < team.length ; i++){
     ${team[i].role}  
     ${team[i].imageUrl}
     `)
-    const newCard = document.createElement('div');
-    newCard.classList.add('ms_card');
+    const newCard = createElement(); 
     newCard.innerHTML = 
     ` 
       <img class="card-img-top" src="${team[i].imageUrl}" alt="Card image cap">
@@ -79,4 +81,10 @@ for(let i = 0; i < team.length ; i++){
     `
     containerCards.append(newCard);
 
+}
+
+function createElement(){
+    const newElement = document.createElement('div');
+    newElement.classList.add('ms_card');
+    return newElement
 }
