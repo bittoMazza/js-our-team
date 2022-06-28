@@ -31,3 +31,13 @@ const team = [
     }
 
 ]
+
+
+for(let i = 0; i < team.length ; i++){
+    console.log
+    (` 
+    ${team[i].name}  
+    ${team[i].role}  
+    ${team[i].imageUrl}
+    `)
+}
