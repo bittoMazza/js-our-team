@@ -31,8 +31,17 @@ const team = [
     }
 
 ]
-
+const selectImg = document.getElementById('image-new-member');
+const nameNewMember = document.getElementById('name-new-member')
+const roleNewMember = document.getElementById('role-new-member')
+const newMemberBtn = document.getElementById('btn-new-member')
 const containerCards = document.getElementById('container-cards') 
+
+
+newMemberBtn,addEventListener('click',function(){
+    console.log(selectImg.value);
+})
+
 
 for(let i = 0; i < team.length ; i++){
     console.log
