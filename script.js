@@ -31,17 +31,30 @@ const team = [
     }
 
 ]
-const selectImg = document.getElementById('image-new-member');
-const nameNewMember = document.getElementById('name-new-member')
-const roleNewMember = document.getElementById('role-new-member')
-const newMemberBtn = document.getElementById('btn-new-member')
+
+const newMemberBtn = document.getElementById('bnt-new-member')
 const containerCards = document.getElementById('container-cards') 
 
 
-newMemberBtn,addEventListener('click',function(){
-    console.log(selectImg.value);
-})
 
+newMemberBtn.addEventListener('click',function(){
+    const selectImg = document.getElementById('image-new-member');
+    const nameNewMember = document.getElementById('name-new-member').value;
+    const roleNewMember = document.getElementById('role-new-member').value;
+    const newMember = {name:nameNewMember,role:roleNewMember,imageUrl:selectImg}
+    const newCard = document.createElement('div');
+    newCard.classList.add('ms_card');
+    newCard.innerHTML = 
+    ` 
+      <img class="card-img-top" src="${selectImg}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title py-2">${nameNewMember}</h5>
+        <h6 class="card-text">${roleNewMember}.</h6>
+      </div>
+    `
+    containerCards.append(newCard);
+    team.push(newMember);
+})
 
 for(let i = 0; i < team.length ; i++){
     console.log
