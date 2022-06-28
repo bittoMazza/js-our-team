@@ -38,15 +38,18 @@ const containerCards = document.getElementById('container-cards')
 
 
 newMemberBtn.addEventListener('click',function(){
-    const selectImg = document.getElementById('image-new-member');
+
+    // Le immagini non le prendiamo in input ma con lorem picsum
+
     const nameNewMember = document.getElementById('name-new-member').value;
     const roleNewMember = document.getElementById('role-new-member').value;
-    const newMember = {name:nameNewMember,role:roleNewMember,imageUrl:selectImg}
+    const newRandomImg = "https://picsum.photos/200"
+    const newMember = {name:nameNewMember,role:roleNewMember,imageUrl:newRandomImg}
     const newCard = document.createElement('div');
     newCard.classList.add('ms_card');
     newCard.innerHTML = 
     ` 
-      <img class="card-img-top" src="${selectImg}" alt="Card image cap">
+      <img class="card-img-top" src="${newRandomImg}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title py-2">${nameNewMember}</h5>
         <h6 class="card-text">${roleNewMember}.</h6>
@@ -54,6 +57,7 @@ newMemberBtn.addEventListener('click',function(){
     `
     containerCards.append(newCard);
     team.push(newMember);
+    console.log(team)
 })
 
 for(let i = 0; i < team.length ; i++){
